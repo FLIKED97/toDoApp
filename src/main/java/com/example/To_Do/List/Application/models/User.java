@@ -1,11 +1,12 @@
 package com.example.To_Do.List.Application.models;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "User")
+@Table(name = "Users")
 public class User {
 
     @Id
@@ -16,10 +17,32 @@ public class User {
     @Column(name = "login")
     private String login;
 
+    @Column(name = "role")
+    private String role;
+
+    @Column(name = "password")
+    private String password;
+
     @OneToMany(mappedBy = "user")
     private List<Task> tasks;
 
     public User() {
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Task> getTasks() {

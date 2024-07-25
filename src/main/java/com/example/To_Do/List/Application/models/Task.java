@@ -1,9 +1,11 @@
 package com.example.To_Do.List.Application.models;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
-@Table(name = "")
+@Table(name = "tasks")
 public class Task {
 
     @Id
