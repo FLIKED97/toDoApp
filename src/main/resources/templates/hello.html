@@ -5,7 +5,11 @@
     <title>Hello</title>
 </head>
 <body>
-Hello World
+<div>
+    <a th:href="@{/user/{id}(id=${user.getId()})}"
+            th:text="${user.login}"></a>
+</div>
+
 
 <form th:action="@{/logout}" th:method="POST">
     <input type="submit" value="Logout"/>

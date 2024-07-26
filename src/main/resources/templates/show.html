@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання</title>
+</head>
+<body>
+<ul>
+    <th:block th:each="task : ${tasks}">
+        <li th:text="${task.title}">Task Title</li>
+    </th:block>
+</ul>
+<a href="/hello">Back to User Info</a>
+<input type="submit" value="Добавити завдання"/>
+</body>
+</html>

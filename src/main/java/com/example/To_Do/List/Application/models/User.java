@@ -79,4 +79,14 @@ public class User {
     public void setLogin(String login) {
         this.login = login;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", role='" + role + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
