@@ -2,7 +2,10 @@ package com.example.To_Do.List.Application.models;
 
 //import jakarta.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "tasks")
@@ -18,11 +21,36 @@ public class Task {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "add_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date addTime;
+
+    @Column(name = "end_time")
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date endTime;
+
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id")
     private User user;
 
     public Task() {
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
     public int getId() {

@@ -5,8 +5,9 @@
     <title>Hello</title>
 </head>
 <body>
+<!--/{id}(id=${user.getId()})-->
 <div>
-    <a th:href="@{/user/{id}(id=${user.getId()})}"
+    <a th:href="@{/user}"
             th:text="${user.login}"></a>
 </div>
 

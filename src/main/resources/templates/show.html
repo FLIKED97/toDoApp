@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Завдання</title>
+    <style>
+        .overdue {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <ul>
     <th:block th:each="task : ${tasks}">
-        <li th:text="${task.title}">Task Title</li>
+        <li>
+            <a th:href="@{/task/{id}(id=${task.id})}" th:text="${task.title}" th:classappend="${task.endTime.time < #dates.createNow().time ? 'overdue' : ''}">Task Title</a>
+        </li>
     </th:block>
 </ul>
-<a href="/hello">Back to User Info</a>
-<input type="submit" value="Добавити завдання"/>
+<a th:href="@{/hello}">Back to User Info</a>
+<a th:href="@{/new}">Добавити завдання</a>
 </body>
 </html>
